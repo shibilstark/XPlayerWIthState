@@ -12,7 +12,7 @@ import 'package:x_player/presentation/videos_view/videos_view.dart';
 ValueNotifier<int> page = ValueNotifier(0);
 ValueNotifier<int> tab = ValueNotifier(0);
 
-final GlobalKey<ScaffoldState> _key = GlobalKey();
+// final GlobalKey<ScaffoldState> _key = GlobalKey();
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class ScreenHome extends StatelessWidget {
         return DefaultTabController(
           length: 2,
           child: Scaffold(
-            key: _key,
+            // key: _key,
             // drawer: DrawerTab(),
             appBar: PreferredSize(
               preferredSize: page.value == 0

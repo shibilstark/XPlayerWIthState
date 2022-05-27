@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:x_player/common/colors.dart';
 import 'package:x_player/common/functions.dart';
+import 'package:x_player/presentation/screen_home/home_screen.dart';
+
+import '../../application/fetch/fetch_bloc.dart';
 
 class ScreenSplash extends StatelessWidget {
   const ScreenSplash({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) async {
+      BlocProvider.of<FetchBloc>(context).add(const FetchEvent.getAllVideos());
+
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (ctx) => const ScreenHome()));
+    });
     final size = MediaQuery.of(context).size;
     return Scaffold(
         body: SafeArea(

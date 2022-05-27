@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:x_player/common/colors.dart';
-import 'package:x_player/presentation/screen_home/home_screen.dart';
+import 'package:x_player/core/injectable/injectable.dart';
 import 'package:x_player/presentation/screen_splash/screen_splash.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureInjection();
   runApp(const MyApp());
 }
 
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(appBarTheme: AppBarTheme(backgroundColor: darkBlue)),
       // ),
 
-      home: ScreenHome(),
+      home: ScreenSplash(),
     );
   }
 }
