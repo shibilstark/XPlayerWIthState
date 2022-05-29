@@ -2,44 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:x_player/common/colors.dart';
 import 'package:x_player/common/functions.dart';
 import 'package:x_player/common/styles.dart';
+import 'package:x_player/presentation/widgets.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const SettingsBody(),
-      appBar: SettingsAppBar(context),
+    return const Scaffold(
+      body: SettingsBody(),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(55),
+        child: CommonAppBar(title: "Settings"),
+      ),
     );
   }
-}
-
-SettingsAppBar(BuildContext context) {
-  return PreferredSize(
-      preferredSize: Size.fromHeight(55),
-      child: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.keyboard_backspace_rounded,
-            color: Colors.white,
-            size: 30,
-          ),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        iconTheme: const IconThemeData(color: pureWhite),
-        backgroundColor: darkBlue,
-        // titleSpacing: -5,
-        title: Padding(
-            padding: const EdgeInsets.only(top: 2),
-            child: Text(
-              "Settings",
-              style: mainTitleStyle,
-            )),
-      ));
 }
 
 class SettingsBody extends StatelessWidget {

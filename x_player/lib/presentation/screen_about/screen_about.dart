@@ -5,6 +5,7 @@ import 'package:x_player/common/functions.dart';
 import 'package:x_player/common/styles.dart';
 import 'package:x_player/presentation/screen_privacy/screen_privacy.dart';
 import 'package:x_player/presentation/screen_settings/screen_settings.dart';
+import 'package:x_player/presentation/widgets.dart';
 
 const aboutStyle = TextStyle(color: darkBlue, fontWeight: FontWeight.w500);
 
@@ -13,38 +14,15 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       // backgroundColor: color_dark,
-      body: const AboutBody(),
-      appBar: aboutAppBar(context),
+      body: AboutBody(),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(55),
+        child: CommonAppBar(title: "About"),
+      ),
     );
   }
-}
-
-aboutAppBar(BuildContext context) {
-  return PreferredSize(
-      preferredSize: const Size.fromHeight(50),
-      child: AppBar(
-        leading: IconButton(
-          icon: const Icon(
-            Icons.keyboard_backspace_rounded,
-            color: Colors.white,
-            size: 30,
-          ),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        iconTheme: const IconThemeData(color: Colors.white70),
-        backgroundColor: darkBlue,
-        // titleSpacing: -5,
-        title: const Padding(
-            padding: EdgeInsets.only(top: 2),
-            child: Text(
-              "About",
-              style: mainTitleStyle,
-            )),
-      ));
 }
 
 class AboutBody extends StatelessWidget {

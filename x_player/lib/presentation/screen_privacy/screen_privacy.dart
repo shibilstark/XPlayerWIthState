@@ -2,45 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:x_player/common/colors.dart';
 import 'package:x_player/common/functions.dart';
 import 'package:x_player/common/styles.dart';
+import 'package:x_player/presentation/widgets.dart';
 
 class PrivacyScreen extends StatelessWidget {
   const PrivacyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // backgroundColor: color_dark,
-      body: PrivacyBody(),
-      appBar: privacyAppBar(context),
-    );
+    return const Scaffold(
+        // backgroundColor: color_dark,
+        body: PrivacyBody(),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(55),
+          child: CommonAppBar(title: "Privacy Policy"),
+        ));
   }
-}
-
-privacyAppBar(BuildContext context) {
-  return PreferredSize(
-      preferredSize: Size.fromHeight(55),
-      child: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.keyboard_backspace_rounded,
-            color: pureWhite,
-            size: 30,
-          ),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        iconTheme: const IconThemeData(color: pureWhite),
-        backgroundColor: darkBlue,
-        // titleSpacing: -5,
-        title: Padding(
-            padding: const EdgeInsets.only(top: 2),
-            child: Text(
-              "Privacy Policy",
-              style: mainTitleStyle,
-            )),
-      ));
 }
 
 class PrivacyBody extends StatelessWidget {
@@ -48,14 +24,12 @@ class PrivacyBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ;
-
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 40,
       ),
       child: ListView(
-        children: [
+        children: const [
           Gap(
             H: 30,
           ),
@@ -127,7 +101,7 @@ class PrivacyPolicyData extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
               color: darkBlue,
               fontSize: 16,
               decoration: TextDecoration.underline,
@@ -136,7 +110,7 @@ class PrivacyPolicyData extends StatelessWidget {
         const Gap(
           H: 10,
         ),
-        Text(data, style: TextStyle(color: lightBlue, fontSize: 14))
+        Text(data, style: const TextStyle(color: lightBlue, fontSize: 14))
       ],
     );
   }

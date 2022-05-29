@@ -1,80 +1,70 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:x_player/common/colors.dart';
+import 'package:x_player/application/fetch_videos/vidoes_fetch.dart';
 import 'package:x_player/common/functions.dart';
+import 'package:x_player/presentation/videos_view/videos_view.dart';
 
-class ScreenSearch extends StatelessWidget {
-  const ScreenSearch({Key? key}) : super(key: key);
+class Mysearch extends SearchDelegate {
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            if (query.isEmpty) {
+              close(context, null);
+            } else {
+              query = '';
+            }
+          },
+          icon: const Icon(Icons.clear))
+    ];
+  }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Container(
-          color: Color.fromARGB(151, 176, 199, 240),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            child: Column(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      color: lightBlue, borderRadius: BorderRadius.circular(5)),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        child: IconButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            icon: Icon(Icons.keyboard_backspace)),
-                      ),
-                      Expanded(
-                        child: SizedBox(
-                          height: 40,
-                          child: CupertinoTextField(
-                            placeholderStyle:
-                                TextStyle(color: pureWhite.withOpacity(0.7)),
-                            placeholder: "Search videos...",
-                            onChanged: (text) {},
-                            cursorColor: middleBlue,
-                            // textAlign: TextAlign.center,
-                            padding: EdgeInsets.symmetric(horizontal: 0),
-                            textAlignVertical: TextAlignVertical.center,
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: darkBlue,
-                            ),
-                            decoration: BoxDecoration(
-                                color: lightBlue,
-                                borderRadius: BorderRadius.circular(5)),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Gap(
-                  H: 20,
-                ),
-                Expanded(
-                  child: SizedBox(
-                    child: ListView.separated(
-                        itemBuilder: (context, index) => Container(
-                              height: 60,
-                              width: double.infinity,
-                              color: Colors.accents[index ~/ 4],
-                            ),
-                        separatorBuilder: (context, index) => Gap(
-                              H: 10,
-                            ),
-                        itemCount: 30),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          close(context, null);
+        },
+        icon: const Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return Center(
+      child: Text(query),
     );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    final listItems = query.isEmpty
+        ? allVideos.value
+        : allVideos.value
+            .where((element) => element
+                .split("/")
+                .last
+                .toLowerCase()
+                .contains(query.toLowerCase().toString()))
+            .toList();
+
+    return listItems.isEmpty
+        ? const Center(child: Text("No Data Found!"))
+        : Container(
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: ListView.separated(
+                  separatorBuilder: (context, index) => Gap(
+                        H: 5,
+                      ),
+                  itemCount: listItems.length,
+                  itemBuilder: (context, index) {
+                    final path = listItems[index];
+
+                    return VideoListTile(
+                      path: path,
+                    );
+                  }),
+            ),
+          );
   }
 }

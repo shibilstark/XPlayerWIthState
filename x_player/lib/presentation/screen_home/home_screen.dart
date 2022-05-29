@@ -20,6 +20,7 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return ValueListenableBuilder(
       valueListenable: page,
       builder: (BuildContext context, int index, _) {
@@ -47,7 +48,7 @@ class ScreenHome extends StatelessWidget {
   }
 }
 
-final _pages = <Widget>[
+final _pages = [
   Container(),
   const ScreenFavorites(),
   const ScreenWatchLater(),
@@ -61,50 +62,54 @@ class MyNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      child: BottomNavigationBar(
-          currentIndex: page.value,
-          onTap: (value) {
-            page.value = value;
-            page.notifyListeners();
-          },
-          selectedIconTheme: const IconThemeData(color: darkBlue, size: 30),
-          unselectedIconTheme: const IconThemeData(
-            color: middleBlue,
-          ),
-          selectedFontSize: 12,
-          iconSize: 26,
-          selectedItemColor: Colors.white,
-          showUnselectedLabels: false,
-          showSelectedLabels: false,
-          type: BottomNavigationBarType.fixed,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.folder_outlined,
+    return ValueListenableBuilder(
+      valueListenable: page,
+      builder: (BuildContext context, int index, _) {
+        return SizedBox(
+          height: 60,
+          child: BottomNavigationBar(
+              currentIndex: page.value,
+              onTap: (value) {
+                page.value = value;
+              },
+              selectedIconTheme: const IconThemeData(color: darkBlue, size: 30),
+              unselectedIconTheme: const IconThemeData(
+                color: middleBlue,
               ),
-              label: "Home",
-              activeIcon: Icon(Icons.folder_rounded),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_outline),
-              label: "Favorites",
-              activeIcon: Icon(Icons.favorite_rounded),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.playlist_play_outlined),
-              label: "Playlists",
-              activeIcon: Icon(Icons.playlist_play_rounded),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.menu_outlined),
-              label: "Menu",
-              activeIcon: Icon(
-                Icons.menu_rounded,
-              ),
-            ),
-          ]),
+              selectedFontSize: 12,
+              iconSize: 26,
+              selectedItemColor: Colors.white,
+              showUnselectedLabels: false,
+              showSelectedLabels: false,
+              type: BottomNavigationBarType.fixed,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.folder_outlined,
+                  ),
+                  label: "Home",
+                  activeIcon: Icon(Icons.folder_rounded),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.favorite_outline),
+                  label: "Favorites",
+                  activeIcon: Icon(Icons.favorite_rounded),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.playlist_play_outlined),
+                  label: "Playlists",
+                  activeIcon: Icon(Icons.playlist_play_rounded),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.menu_outlined),
+                  label: "Menu",
+                  activeIcon: Icon(
+                    Icons.menu_rounded,
+                  ),
+                ),
+              ]),
+        );
+      },
     );
   }
 }
@@ -174,8 +179,7 @@ class MainAppBar extends StatelessWidget {
             page == 0
                 ? IconButton(
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (ctx) => const ScreenSearch()));
+                      showSearch(context: context, delegate: Mysearch());
                     },
                     icon: const Icon(CupertinoIcons.search))
                 : const SizedBox(),
