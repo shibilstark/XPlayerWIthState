@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
@@ -35,9 +34,7 @@ lauchEmail({required toMail}) async {
   await launchUrlString("mailto:shibilhassank2002@gmail.com");
 }
 
-shareFile(String file) async {
-  final video = File(file);
-
+shareFile({required String file}) async {
   await Share.shareFiles([file]);
 }
 

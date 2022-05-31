@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum UserTheme {
-  Dark,
-  Light,
-}
-
 const Color pureWhite = Colors.white;
-
 const Color dark = Color(0xFF1C1E25);
 const Color semiDark = Color.fromARGB(220, 28, 30, 37);
 const Color smoothie = Color(0xFF5C5F6F);

@@ -1,12 +1,17 @@
+// ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:x_player/application/fetch_videos/vidoes_fetch.dart';
+import 'package:x_player/application/video_info/video_info_bloc.dart';
 import 'package:x_player/common/colors.dart';
 import 'package:x_player/common/styles.dart';
+import 'package:x_player/player/player.dart';
 import 'package:x_player/presentation/folder_view/folder_view.dart';
-import 'package:x_player/presentation/screen_favorites/screen_favorites.dart';
 import 'package:x_player/presentation/screen_menu/screen_menu.dart';
+import 'package:x_player/presentation/screen_playlists/screen_playlists.dart';
 import 'package:x_player/presentation/screen_search/screen_search.dart';
-import 'package:x_player/presentation/screen_watchlater/screen_watchlater.dart';
 import 'package:x_player/presentation/videos_view/videos_view.dart';
 
 ValueNotifier<int> page = ValueNotifier(0);
@@ -19,28 +24,61 @@ class ScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      BlocProvider.of<VideoInfoBloc>(context).add(const GetLastPlayed());
+    });
+    folderList.notifyListeners();
+    // final size = MediaQuery.of(context).size;
 
     return ValueListenableBuilder(
       valueListenable: page,
       builder: (BuildContext context, int index, _) {
         return DefaultTabController(
           length: 2,
-          child: Scaffold(
-            // key: _key,
-            // drawer: DrawerTab(),
-            appBar: PreferredSize(
-              preferredSize: page.value == 0
-                  ? const Size.fromHeight(90)
-                  : const Size.fromHeight(55),
-              child: MainAppBar(title: "Home", page: page.value),
-            ),
-            bottomNavigationBar: const MyNavigationBar(),
-            body: SafeArea(
-              child: page.value != 0
-                  ? _pages[page.value]
-                  : const TabBarView(children: [FolderView(), VideosView()]),
-            ),
+          child: BlocBuilder<VideoInfoBloc, VideoInfoState>(
+            builder: (context, state) {
+              return Scaffold(
+                // key: _key,
+                // drawer: DrawerTab(),
+
+                floatingActionButton:
+                    page.value == 0 && state.lastPlayed != null
+                        ? FloatingActionButton(
+                            backgroundColor: middleBlue,
+                            focusColor: pureWhite,
+                            onPressed: () {
+                              BlocProvider.of<VideoInfoBloc>(context)
+                                  .add(const GetLastPlayed());
+
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (ctx) => LocalVideoPlayer(
+                                      videoUrl: state.lastPlayed!)));
+
+                              BlocProvider.of<VideoInfoBloc>(context).add(
+                                  SetLastPlayed(lastPlayed: state.lastPlayed!));
+                            },
+                            // ignore: prefer_const_constructors
+                            child: Icon(
+                              Icons.play_arrow_rounded,
+                              size: 40,
+                            ),
+                          )
+                        : null,
+                appBar: PreferredSize(
+                  preferredSize: page.value == 0
+                      ? const Size.fromHeight(90)
+                      : const Size.fromHeight(55),
+                  child: MainAppBar(title: "Home", page: page.value),
+                ),
+                bottomNavigationBar: const MyNavigationBar(),
+                body: SafeArea(
+                  child: page.value != 0
+                      ? _pages[page.value]
+                      : const TabBarView(
+                          children: [FolderView(), VideosView()]),
+                ),
+              );
+            },
           ),
         );
       },
@@ -50,8 +88,7 @@ class ScreenHome extends StatelessWidget {
 
 final _pages = [
   Container(),
-  const ScreenFavorites(),
-  const ScreenWatchLater(),
+  const ScreenPlayLists(),
   const ScreenMenu(),
 ];
 
@@ -91,11 +128,6 @@ class MyNavigationBar extends StatelessWidget {
                   activeIcon: Icon(Icons.folder_rounded),
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.favorite_outline),
-                  label: "Favorites",
-                  activeIcon: Icon(Icons.favorite_rounded),
-                ),
-                BottomNavigationBarItem(
                   icon: Icon(Icons.playlist_play_outlined),
                   label: "Playlists",
                   activeIcon: Icon(Icons.playlist_play_rounded),
@@ -117,7 +149,7 @@ class MyNavigationBar extends StatelessWidget {
 class MainAppBar extends StatelessWidget {
   final String title;
   final int page;
-  MainAppBar({Key? key, required this.title, required this.page})
+  const MainAppBar({Key? key, required this.title, required this.page})
       : super(key: key);
 
   @override

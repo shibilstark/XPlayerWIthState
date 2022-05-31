@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:x_player/common/colors.dart';
 import 'package:x_player/common/functions.dart';
-import 'package:x_player/common/styles.dart';
 import 'package:x_player/presentation/screen_privacy/screen_privacy.dart';
 import 'package:x_player/presentation/screen_settings/screen_settings.dart';
 import 'package:x_player/presentation/widgets.dart';
@@ -98,7 +96,7 @@ class AboutBody extends StatelessWidget {
               InkWell(
                 child: const Text(
                   "By using X Player, you agree to X Player's Privacy Policy",
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: Colors.blueAccent, fontWeight: FontWeight.w500),
                 ),
                 onTap: () {

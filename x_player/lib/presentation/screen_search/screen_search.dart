@@ -49,22 +49,21 @@ class Mysearch extends SearchDelegate {
 
     return listItems.isEmpty
         ? const Center(child: Text("No Data Found!"))
-        : Container(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: ListView.separated(
-                  separatorBuilder: (context, index) => Gap(
-                        H: 5,
-                      ),
-                  itemCount: listItems.length,
-                  itemBuilder: (context, index) {
-                    final path = listItems[index];
+        : Padding(
+            padding: const EdgeInsets.all(10),
+            child: ListView.separated(
+                separatorBuilder: (context, index) => const Gap(
+                      H: 5,
+                    ),
+                itemCount: listItems.length,
+                itemBuilder: (context, index) {
+                  final path = listItems[index];
 
-                    return VideoListTile(
-                      path: path,
-                    );
-                  }),
-            ),
+                  return VideoListTile(
+                    path: path,
+                    index: index,
+                  );
+                }),
           );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:x_player/common/colors.dart';
 import 'package:x_player/common/functions.dart';
-import 'package:x_player/common/styles.dart';
 import 'package:x_player/presentation/widgets.dart';
 
 class PrivacyScreen extends StatelessWidget {

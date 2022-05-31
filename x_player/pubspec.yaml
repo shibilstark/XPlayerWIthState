@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  fluttertoast: ^8.0.9
   flutter_bloc: ^8.0.1
   get_test: ^4.0.1
   freezed_annotation: ^2.0.3
@@ -74,6 +75,9 @@ flutter:
   assets:
     - assets/img/main_logo_adjusted.png
     - assets/img/thumnail-alt.png
+    - assets/img/fav.png
+    - assets/img/playlist.png
+    - assets/img/simple.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

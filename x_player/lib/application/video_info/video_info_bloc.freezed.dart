@@ -20,18 +20,27 @@ mixin _$VideoInfoEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() Initial,
     required TResult Function(String videoPath) getVideoInfo,
+    required TResult Function() getLastPlayed,
+    required TResult Function(String lastPlayed) setLastPlayed,
+    required TResult Function() clearLastPlayed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? Initial,
     TResult Function(String videoPath)? getVideoInfo,
+    TResult Function()? getLastPlayed,
+    TResult Function(String lastPlayed)? setLastPlayed,
+    TResult Function()? clearLastPlayed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? Initial,
     TResult Function(String videoPath)? getVideoInfo,
+    TResult Function()? getLastPlayed,
+    TResult Function(String lastPlayed)? setLastPlayed,
+    TResult Function()? clearLastPlayed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +48,27 @@ mixin _$VideoInfoEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) Initial,
     required TResult Function(GetVideoInfo value) getVideoInfo,
+    required TResult Function(GetLastPlayed value) getLastPlayed,
+    required TResult Function(SetLastPlayed value) setLastPlayed,
+    required TResult Function(ClearLastPlayed value) clearLastPlayed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initial value)? Initial,
     TResult Function(GetVideoInfo value)? getVideoInfo,
+    TResult Function(GetLastPlayed value)? getLastPlayed,
+    TResult Function(SetLastPlayed value)? setLastPlayed,
+    TResult Function(ClearLastPlayed value)? clearLastPlayed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? Initial,
     TResult Function(GetVideoInfo value)? getVideoInfo,
+    TResult Function(GetLastPlayed value)? getLastPlayed,
+    TResult Function(SetLastPlayed value)? setLastPlayed,
+    TResult Function(ClearLastPlayed value)? clearLastPlayed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,12 +109,18 @@ class __$$InitialCopyWithImpl<$Res> extends _$VideoInfoEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Initial implements Initial {
+class _$Initial with DiagnosticableTreeMixin implements Initial {
   const _$Initial();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'VideoInfoEvent.Initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'VideoInfoEvent.Initial'));
   }
 
   @override
@@ -113,6 +137,9 @@ class _$Initial implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() Initial,
     required TResult Function(String videoPath) getVideoInfo,
+    required TResult Function() getLastPlayed,
+    required TResult Function(String lastPlayed) setLastPlayed,
+    required TResult Function() clearLastPlayed,
   }) {
     return Initial();
   }
@@ -122,6 +149,9 @@ class _$Initial implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? Initial,
     TResult Function(String videoPath)? getVideoInfo,
+    TResult Function()? getLastPlayed,
+    TResult Function(String lastPlayed)? setLastPlayed,
+    TResult Function()? clearLastPlayed,
   }) {
     return Initial?.call();
   }
@@ -131,6 +161,9 @@ class _$Initial implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? Initial,
     TResult Function(String videoPath)? getVideoInfo,
+    TResult Function()? getLastPlayed,
+    TResult Function(String lastPlayed)? setLastPlayed,
+    TResult Function()? clearLastPlayed,
     required TResult orElse(),
   }) {
     if (Initial != null) {
@@ -144,6 +177,9 @@ class _$Initial implements Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) Initial,
     required TResult Function(GetVideoInfo value) getVideoInfo,
+    required TResult Function(GetLastPlayed value) getLastPlayed,
+    required TResult Function(SetLastPlayed value) setLastPlayed,
+    required TResult Function(ClearLastPlayed value) clearLastPlayed,
   }) {
     return Initial(this);
   }
@@ -153,6 +189,9 @@ class _$Initial implements Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initial value)? Initial,
     TResult Function(GetVideoInfo value)? getVideoInfo,
+    TResult Function(GetLastPlayed value)? getLastPlayed,
+    TResult Function(SetLastPlayed value)? setLastPlayed,
+    TResult Function(ClearLastPlayed value)? clearLastPlayed,
   }) {
     return Initial?.call(this);
   }
@@ -162,6 +201,9 @@ class _$Initial implements Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? Initial,
     TResult Function(GetVideoInfo value)? getVideoInfo,
+    TResult Function(GetLastPlayed value)? getLastPlayed,
+    TResult Function(SetLastPlayed value)? setLastPlayed,
+    TResult Function(ClearLastPlayed value)? clearLastPlayed,
     required TResult orElse(),
   }) {
     if (Initial != null) {
@@ -209,15 +251,23 @@ class __$$GetVideoInfoCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetVideoInfo implements GetVideoInfo {
+class _$GetVideoInfo with DiagnosticableTreeMixin implements GetVideoInfo {
   const _$GetVideoInfo({required this.videoPath});
 
   @override
   final String videoPath;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'VideoInfoEvent.getVideoInfo(videoPath: $videoPath)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'VideoInfoEvent.getVideoInfo'))
+      ..add(DiagnosticsProperty('videoPath', videoPath));
   }
 
   @override
@@ -242,6 +292,9 @@ class _$GetVideoInfo implements GetVideoInfo {
   TResult when<TResult extends Object?>({
     required TResult Function() Initial,
     required TResult Function(String videoPath) getVideoInfo,
+    required TResult Function() getLastPlayed,
+    required TResult Function(String lastPlayed) setLastPlayed,
+    required TResult Function() clearLastPlayed,
   }) {
     return getVideoInfo(videoPath);
   }
@@ -251,6 +304,9 @@ class _$GetVideoInfo implements GetVideoInfo {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? Initial,
     TResult Function(String videoPath)? getVideoInfo,
+    TResult Function()? getLastPlayed,
+    TResult Function(String lastPlayed)? setLastPlayed,
+    TResult Function()? clearLastPlayed,
   }) {
     return getVideoInfo?.call(videoPath);
   }
@@ -260,6 +316,9 @@ class _$GetVideoInfo implements GetVideoInfo {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? Initial,
     TResult Function(String videoPath)? getVideoInfo,
+    TResult Function()? getLastPlayed,
+    TResult Function(String lastPlayed)? setLastPlayed,
+    TResult Function()? clearLastPlayed,
     required TResult orElse(),
   }) {
     if (getVideoInfo != null) {
@@ -273,6 +332,9 @@ class _$GetVideoInfo implements GetVideoInfo {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) Initial,
     required TResult Function(GetVideoInfo value) getVideoInfo,
+    required TResult Function(GetLastPlayed value) getLastPlayed,
+    required TResult Function(SetLastPlayed value) setLastPlayed,
+    required TResult Function(ClearLastPlayed value) clearLastPlayed,
   }) {
     return getVideoInfo(this);
   }
@@ -282,6 +344,9 @@ class _$GetVideoInfo implements GetVideoInfo {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initial value)? Initial,
     TResult Function(GetVideoInfo value)? getVideoInfo,
+    TResult Function(GetLastPlayed value)? getLastPlayed,
+    TResult Function(SetLastPlayed value)? setLastPlayed,
+    TResult Function(ClearLastPlayed value)? clearLastPlayed,
   }) {
     return getVideoInfo?.call(this);
   }
@@ -291,6 +356,9 @@ class _$GetVideoInfo implements GetVideoInfo {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? Initial,
     TResult Function(GetVideoInfo value)? getVideoInfo,
+    TResult Function(GetLastPlayed value)? getLastPlayed,
+    TResult Function(SetLastPlayed value)? setLastPlayed,
+    TResult Function(ClearLastPlayed value)? clearLastPlayed,
     required TResult orElse(),
   }) {
     if (getVideoInfo != null) {
@@ -311,9 +379,433 @@ abstract class GetVideoInfo implements VideoInfoEvent {
 }
 
 /// @nodoc
+abstract class _$$GetLastPlayedCopyWith<$Res> {
+  factory _$$GetLastPlayedCopyWith(
+          _$GetLastPlayed value, $Res Function(_$GetLastPlayed) then) =
+      __$$GetLastPlayedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetLastPlayedCopyWithImpl<$Res>
+    extends _$VideoInfoEventCopyWithImpl<$Res>
+    implements _$$GetLastPlayedCopyWith<$Res> {
+  __$$GetLastPlayedCopyWithImpl(
+      _$GetLastPlayed _value, $Res Function(_$GetLastPlayed) _then)
+      : super(_value, (v) => _then(v as _$GetLastPlayed));
+
+  @override
+  _$GetLastPlayed get _value => super._value as _$GetLastPlayed;
+}
+
+/// @nodoc
+
+class _$GetLastPlayed with DiagnosticableTreeMixin implements GetLastPlayed {
+  const _$GetLastPlayed();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'VideoInfoEvent.getLastPlayed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'VideoInfoEvent.getLastPlayed'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetLastPlayed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() Initial,
+    required TResult Function(String videoPath) getVideoInfo,
+    required TResult Function() getLastPlayed,
+    required TResult Function(String lastPlayed) setLastPlayed,
+    required TResult Function() clearLastPlayed,
+  }) {
+    return getLastPlayed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? Initial,
+    TResult Function(String videoPath)? getVideoInfo,
+    TResult Function()? getLastPlayed,
+    TResult Function(String lastPlayed)? setLastPlayed,
+    TResult Function()? clearLastPlayed,
+  }) {
+    return getLastPlayed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? Initial,
+    TResult Function(String videoPath)? getVideoInfo,
+    TResult Function()? getLastPlayed,
+    TResult Function(String lastPlayed)? setLastPlayed,
+    TResult Function()? clearLastPlayed,
+    required TResult orElse(),
+  }) {
+    if (getLastPlayed != null) {
+      return getLastPlayed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) Initial,
+    required TResult Function(GetVideoInfo value) getVideoInfo,
+    required TResult Function(GetLastPlayed value) getLastPlayed,
+    required TResult Function(SetLastPlayed value) setLastPlayed,
+    required TResult Function(ClearLastPlayed value) clearLastPlayed,
+  }) {
+    return getLastPlayed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? Initial,
+    TResult Function(GetVideoInfo value)? getVideoInfo,
+    TResult Function(GetLastPlayed value)? getLastPlayed,
+    TResult Function(SetLastPlayed value)? setLastPlayed,
+    TResult Function(ClearLastPlayed value)? clearLastPlayed,
+  }) {
+    return getLastPlayed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? Initial,
+    TResult Function(GetVideoInfo value)? getVideoInfo,
+    TResult Function(GetLastPlayed value)? getLastPlayed,
+    TResult Function(SetLastPlayed value)? setLastPlayed,
+    TResult Function(ClearLastPlayed value)? clearLastPlayed,
+    required TResult orElse(),
+  }) {
+    if (getLastPlayed != null) {
+      return getLastPlayed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetLastPlayed implements VideoInfoEvent {
+  const factory GetLastPlayed() = _$GetLastPlayed;
+}
+
+/// @nodoc
+abstract class _$$SetLastPlayedCopyWith<$Res> {
+  factory _$$SetLastPlayedCopyWith(
+          _$SetLastPlayed value, $Res Function(_$SetLastPlayed) then) =
+      __$$SetLastPlayedCopyWithImpl<$Res>;
+  $Res call({String lastPlayed});
+}
+
+/// @nodoc
+class __$$SetLastPlayedCopyWithImpl<$Res>
+    extends _$VideoInfoEventCopyWithImpl<$Res>
+    implements _$$SetLastPlayedCopyWith<$Res> {
+  __$$SetLastPlayedCopyWithImpl(
+      _$SetLastPlayed _value, $Res Function(_$SetLastPlayed) _then)
+      : super(_value, (v) => _then(v as _$SetLastPlayed));
+
+  @override
+  _$SetLastPlayed get _value => super._value as _$SetLastPlayed;
+
+  @override
+  $Res call({
+    Object? lastPlayed = freezed,
+  }) {
+    return _then(_$SetLastPlayed(
+      lastPlayed: lastPlayed == freezed
+          ? _value.lastPlayed
+          : lastPlayed // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetLastPlayed with DiagnosticableTreeMixin implements SetLastPlayed {
+  const _$SetLastPlayed({required this.lastPlayed});
+
+  @override
+  final String lastPlayed;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'VideoInfoEvent.setLastPlayed(lastPlayed: $lastPlayed)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'VideoInfoEvent.setLastPlayed'))
+      ..add(DiagnosticsProperty('lastPlayed', lastPlayed));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetLastPlayed &&
+            const DeepCollectionEquality()
+                .equals(other.lastPlayed, lastPlayed));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(lastPlayed));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SetLastPlayedCopyWith<_$SetLastPlayed> get copyWith =>
+      __$$SetLastPlayedCopyWithImpl<_$SetLastPlayed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() Initial,
+    required TResult Function(String videoPath) getVideoInfo,
+    required TResult Function() getLastPlayed,
+    required TResult Function(String lastPlayed) setLastPlayed,
+    required TResult Function() clearLastPlayed,
+  }) {
+    return setLastPlayed(lastPlayed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? Initial,
+    TResult Function(String videoPath)? getVideoInfo,
+    TResult Function()? getLastPlayed,
+    TResult Function(String lastPlayed)? setLastPlayed,
+    TResult Function()? clearLastPlayed,
+  }) {
+    return setLastPlayed?.call(lastPlayed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? Initial,
+    TResult Function(String videoPath)? getVideoInfo,
+    TResult Function()? getLastPlayed,
+    TResult Function(String lastPlayed)? setLastPlayed,
+    TResult Function()? clearLastPlayed,
+    required TResult orElse(),
+  }) {
+    if (setLastPlayed != null) {
+      return setLastPlayed(lastPlayed);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) Initial,
+    required TResult Function(GetVideoInfo value) getVideoInfo,
+    required TResult Function(GetLastPlayed value) getLastPlayed,
+    required TResult Function(SetLastPlayed value) setLastPlayed,
+    required TResult Function(ClearLastPlayed value) clearLastPlayed,
+  }) {
+    return setLastPlayed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? Initial,
+    TResult Function(GetVideoInfo value)? getVideoInfo,
+    TResult Function(GetLastPlayed value)? getLastPlayed,
+    TResult Function(SetLastPlayed value)? setLastPlayed,
+    TResult Function(ClearLastPlayed value)? clearLastPlayed,
+  }) {
+    return setLastPlayed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? Initial,
+    TResult Function(GetVideoInfo value)? getVideoInfo,
+    TResult Function(GetLastPlayed value)? getLastPlayed,
+    TResult Function(SetLastPlayed value)? setLastPlayed,
+    TResult Function(ClearLastPlayed value)? clearLastPlayed,
+    required TResult orElse(),
+  }) {
+    if (setLastPlayed != null) {
+      return setLastPlayed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetLastPlayed implements VideoInfoEvent {
+  const factory SetLastPlayed({required final String lastPlayed}) =
+      _$SetLastPlayed;
+
+  String get lastPlayed => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$SetLastPlayedCopyWith<_$SetLastPlayed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ClearLastPlayedCopyWith<$Res> {
+  factory _$$ClearLastPlayedCopyWith(
+          _$ClearLastPlayed value, $Res Function(_$ClearLastPlayed) then) =
+      __$$ClearLastPlayedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClearLastPlayedCopyWithImpl<$Res>
+    extends _$VideoInfoEventCopyWithImpl<$Res>
+    implements _$$ClearLastPlayedCopyWith<$Res> {
+  __$$ClearLastPlayedCopyWithImpl(
+      _$ClearLastPlayed _value, $Res Function(_$ClearLastPlayed) _then)
+      : super(_value, (v) => _then(v as _$ClearLastPlayed));
+
+  @override
+  _$ClearLastPlayed get _value => super._value as _$ClearLastPlayed;
+}
+
+/// @nodoc
+
+class _$ClearLastPlayed
+    with DiagnosticableTreeMixin
+    implements ClearLastPlayed {
+  const _$ClearLastPlayed();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'VideoInfoEvent.clearLastPlayed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'VideoInfoEvent.clearLastPlayed'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ClearLastPlayed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() Initial,
+    required TResult Function(String videoPath) getVideoInfo,
+    required TResult Function() getLastPlayed,
+    required TResult Function(String lastPlayed) setLastPlayed,
+    required TResult Function() clearLastPlayed,
+  }) {
+    return clearLastPlayed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? Initial,
+    TResult Function(String videoPath)? getVideoInfo,
+    TResult Function()? getLastPlayed,
+    TResult Function(String lastPlayed)? setLastPlayed,
+    TResult Function()? clearLastPlayed,
+  }) {
+    return clearLastPlayed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? Initial,
+    TResult Function(String videoPath)? getVideoInfo,
+    TResult Function()? getLastPlayed,
+    TResult Function(String lastPlayed)? setLastPlayed,
+    TResult Function()? clearLastPlayed,
+    required TResult orElse(),
+  }) {
+    if (clearLastPlayed != null) {
+      return clearLastPlayed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) Initial,
+    required TResult Function(GetVideoInfo value) getVideoInfo,
+    required TResult Function(GetLastPlayed value) getLastPlayed,
+    required TResult Function(SetLastPlayed value) setLastPlayed,
+    required TResult Function(ClearLastPlayed value) clearLastPlayed,
+  }) {
+    return clearLastPlayed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? Initial,
+    TResult Function(GetVideoInfo value)? getVideoInfo,
+    TResult Function(GetLastPlayed value)? getLastPlayed,
+    TResult Function(SetLastPlayed value)? setLastPlayed,
+    TResult Function(ClearLastPlayed value)? clearLastPlayed,
+  }) {
+    return clearLastPlayed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? Initial,
+    TResult Function(GetVideoInfo value)? getVideoInfo,
+    TResult Function(GetLastPlayed value)? getLastPlayed,
+    TResult Function(SetLastPlayed value)? setLastPlayed,
+    TResult Function(ClearLastPlayed value)? clearLastPlayed,
+    required TResult orElse(),
+  }) {
+    if (clearLastPlayed != null) {
+      return clearLastPlayed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearLastPlayed implements VideoInfoEvent {
+  const factory ClearLastPlayed() = _$ClearLastPlayed;
+}
+
+/// @nodoc
 mixin _$VideoInfoState {
   bool get isLoading => throw _privateConstructorUsedError;
   VideoData? get info => throw _privateConstructorUsedError;
+  String? get lastPlayed => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $VideoInfoStateCopyWith<VideoInfoState> get copyWith =>
@@ -325,7 +817,7 @@ abstract class $VideoInfoStateCopyWith<$Res> {
   factory $VideoInfoStateCopyWith(
           VideoInfoState value, $Res Function(VideoInfoState) then) =
       _$VideoInfoStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, VideoData? info});
+  $Res call({bool isLoading, VideoData? info, String? lastPlayed});
 }
 
 /// @nodoc
@@ -341,6 +833,7 @@ class _$VideoInfoStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = freezed,
     Object? info = freezed,
+    Object? lastPlayed = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -351,6 +844,10 @@ class _$VideoInfoStateCopyWithImpl<$Res>
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as VideoData?,
+      lastPlayed: lastPlayed == freezed
+          ? _value.lastPlayed
+          : lastPlayed // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -362,7 +859,7 @@ abstract class _$$_VideoInfoStateCopyWith<$Res>
           _$_VideoInfoState value, $Res Function(_$_VideoInfoState) then) =
       __$$_VideoInfoStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, VideoData? info});
+  $Res call({bool isLoading, VideoData? info, String? lastPlayed});
 }
 
 /// @nodoc
@@ -380,6 +877,7 @@ class __$$_VideoInfoStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = freezed,
     Object? info = freezed,
+    Object? lastPlayed = freezed,
   }) {
     return _then(_$_VideoInfoState(
       isLoading: isLoading == freezed
@@ -390,23 +888,42 @@ class __$$_VideoInfoStateCopyWithImpl<$Res>
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as VideoData?,
+      lastPlayed: lastPlayed == freezed
+          ? _value.lastPlayed
+          : lastPlayed // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_VideoInfoState implements _VideoInfoState {
-  const _$_VideoInfoState({required this.isLoading, required this.info});
+class _$_VideoInfoState
+    with DiagnosticableTreeMixin
+    implements _VideoInfoState {
+  const _$_VideoInfoState(
+      {required this.isLoading, required this.info, required this.lastPlayed});
 
   @override
   final bool isLoading;
   @override
   final VideoData? info;
+  @override
+  final String? lastPlayed;
 
   @override
-  String toString() {
-    return 'VideoInfoState(isLoading: $isLoading, info: $info)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'VideoInfoState(isLoading: $isLoading, info: $info, lastPlayed: $lastPlayed)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'VideoInfoState'))
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('info', info))
+      ..add(DiagnosticsProperty('lastPlayed', lastPlayed));
   }
 
   @override
@@ -415,14 +932,17 @@ class _$_VideoInfoState implements _VideoInfoState {
         (other.runtimeType == runtimeType &&
             other is _$_VideoInfoState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.info, info));
+            const DeepCollectionEquality().equals(other.info, info) &&
+            const DeepCollectionEquality()
+                .equals(other.lastPlayed, lastPlayed));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(info));
+      const DeepCollectionEquality().hash(info),
+      const DeepCollectionEquality().hash(lastPlayed));
 
   @JsonKey(ignore: true)
   @override
@@ -433,12 +953,15 @@ class _$_VideoInfoState implements _VideoInfoState {
 abstract class _VideoInfoState implements VideoInfoState {
   const factory _VideoInfoState(
       {required final bool isLoading,
-      required final VideoData? info}) = _$_VideoInfoState;
+      required final VideoData? info,
+      required final String? lastPlayed}) = _$_VideoInfoState;
 
   @override
   bool get isLoading => throw _privateConstructorUsedError;
   @override
   VideoData? get info => throw _privateConstructorUsedError;
+  @override
+  String? get lastPlayed => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_VideoInfoStateCopyWith<_$_VideoInfoState> get copyWith =>

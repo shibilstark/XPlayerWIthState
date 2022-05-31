@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:x_player/common/colors.dart';
 import 'package:x_player/common/styles.dart';
@@ -32,5 +34,33 @@ class CommonAppBar extends StatelessWidget {
                 style: mainTitleStyle,
               )),
         ));
+  }
+}
+
+class EmptyShow extends StatelessWidget {
+  const EmptyShow({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text(
+        "No Videos Found",
+        style: TextStyle(color: lightBlue, fontSize: 16),
+      ),
+    );
+  }
+}
+
+class EmptyFound extends StatelessWidget {
+  const EmptyFound({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text(
+        "Empty",
+        style: TextStyle(color: lightBlue, fontSize: 16),
+      ),
+    );
   }
 }

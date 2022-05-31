@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:x_player/common/colors.dart';
 import 'package:x_player/common/functions.dart';
@@ -14,79 +16,77 @@ class ScreenMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: color_dark,
-      body: Container(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10),
-          child: ListView(
-            children: [
-              MenuTiles(
-                text: "Settings",
-                icon: Icons.settings_rounded,
-                page: const SettingsScreen(),
-                ctx: context,
-              ),
-              const Divider(
-                color: lightBlue,
-              ),
-              MenuTiles(
-                text: "Share App",
-                icon: Icons.share_rounded,
-                page: const TestScreen(),
-                ctx: context,
-              ),
-              const Divider(
-                color: lightBlue,
-              ),
-              MenuTiles(
-                text: "Privacy Policy",
-                icon: Icons.privacy_tip,
-                page: const PrivacyScreen(),
-                ctx: context,
-              ),
-              const Divider(
-                color: lightBlue,
-              ),
-              MenuTiles(
-                text: "About",
-                icon: Icons.info_rounded,
-                page: const AboutScreen(),
-                ctx: context,
-              ),
-              const Divider(
-                color: lightBlue,
-              ),
-              GestureDetector(
-                onTap: () {
-                  lauchEmail(toMail: "shibilhassank2002@gmail.com");
-                },
-                child: SizedBox(
-                  height: 40,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Row(
-                      children: const [
-                        Icon(
-                          Icons.email_rounded,
-                          color: pureWhite,
-                          size: 22,
-                        ),
-                        Gap(
-                          W: 30,
-                        ),
-                        Text(
-                          "Connect us",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: pureWhite,
-                              fontWeight: FontWeight.w500),
-                        )
-                      ],
-                    ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: ListView(
+          children: [
+            MenuTiles(
+              text: "Settings",
+              icon: Icons.settings_rounded,
+              page: const SettingsScreen(),
+              ctx: context,
+            ),
+            const Divider(
+              color: lightBlue,
+            ),
+            MenuTiles(
+              text: "Share App",
+              icon: Icons.share_rounded,
+              page: const TestScreen(),
+              ctx: context,
+            ),
+            const Divider(
+              color: lightBlue,
+            ),
+            MenuTiles(
+              text: "Privacy Policy",
+              icon: Icons.privacy_tip,
+              page: const PrivacyScreen(),
+              ctx: context,
+            ),
+            const Divider(
+              color: lightBlue,
+            ),
+            MenuTiles(
+              text: "About",
+              icon: Icons.info_rounded,
+              page: const AboutScreen(),
+              ctx: context,
+            ),
+            const Divider(
+              color: lightBlue,
+            ),
+            GestureDetector(
+              onTap: () {
+                lauchEmail(toMail: "shibilhassank2002@gmail.com");
+              },
+              child: SizedBox(
+                height: 40,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Row(
+                    children: const [
+                      Icon(
+                        Icons.email_rounded,
+                        color: pureWhite,
+                        size: 22,
+                      ),
+                      Gap(
+                        W: 30,
+                      ),
+                      Text(
+                        "Connect us",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: pureWhite,
+                            fontWeight: FontWeight.w500),
+                      )
+                    ],
                   ),
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -96,7 +96,7 @@ class ScreenMenu extends StatelessWidget {
 class MenuTiles extends StatelessWidget {
   final String text;
   final IconData icon;
-  // ignore: prefer_typing_uninitialized_variables
+
   final page;
   final ctx;
   const MenuTiles(
@@ -120,7 +120,7 @@ class MenuTiles extends StatelessWidget {
               .push(MaterialPageRoute(builder: (context) => page));
         }
       },
-      child: Container(
+      child: SizedBox(
         height: 40,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
